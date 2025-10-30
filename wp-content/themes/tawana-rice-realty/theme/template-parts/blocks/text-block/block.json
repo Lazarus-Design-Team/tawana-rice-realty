@@ -1,0 +1,15 @@
+{
+    "name": "acf/text-block",
+    "title": "Text Block",
+    "description": "Section to display a block of text",
+    "category": "lazarus-design-team",
+    "icon": "text-page",
+    "keywords": ["text block", "text", "text-banner"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "text-block.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

@@ -1,0 +1,66 @@
+name: Theme Quality Checks
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+  push:
+    branches: [ develop ]
+
+jobs:
+  validate-acf-json:
+    name: Validate ACF JSON
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate ACF JSON syntax
+        run: |
+          if [ -d "wp-content/themes/tawana-rice-realty/acf-json" ]; then
+            for file in wp-content/themes/tawana-rice-realty/acf-json/*.json; do
+              if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+                echo "❌ Invalid JSON in $file"
+                exit 1
+              fi
+            done
+            echo "✅ All ACF JSON files are valid"
+          else
+            echo "⚠️  No ACF JSON directory found (skipping)"
+          fi
+
+  check-theme-files:
+    name: Check Theme Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify required theme files
+        run: |
+          THEME_DIR="wp-content/themes/tawana-rice-realty"
+          REQUIRED_FILES=("style.css" "functions.php" "index.php")
+
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$THEME_DIR/$file" ]; then
+              echo "❌ Missing required file: $file"
+              exit 1
+            fi
+          done
+          echo "✅ All required theme files present"
+
+      - name: Check for PHP syntax errors
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Lint PHP files
+        run: |
+          find wp-content/themes/tawana-rice-realty -name "*.php" -exec php -l {} \; > /tmp/php-lint.log 2>&1
+          if grep -q "Parse error" /tmp/php-lint.log; then
+            cat /tmp/php-lint.log
+            echo "❌ PHP syntax errors found"
+            exit 1
+          fi
+          echo "✅ No PHP syntax errors found"

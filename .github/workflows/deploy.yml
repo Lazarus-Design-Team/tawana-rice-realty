@@ -1,0 +1,54 @@
+name: Deploy Theme to SpinupWP
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SPINUPWP_SSH_KEY }}
+
+      - name: Add server to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SPINUPWP_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy theme to SpinupWP via rsync
+        env:
+          DEPLOY_USER: ${{ secrets.SPINUPWP_USER }}
+          DEPLOY_HOST: ${{ secrets.SPINUPWP_HOST }}
+          THEME_PATH: ${{ secrets.SPINUPWP_THEME_PATH }}
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='vendor' \
+            --exclude='*.log' \
+            --exclude='.DS_Store' \
+            --exclude='CLAUDE.md' \
+            --exclude='README.md' \
+            wp-content/themes/tawana-rice-realty/ \
+            ${DEPLOY_USER}@${DEPLOY_HOST}:${THEME_PATH}/
+
+      - name: Flush cache after deployment
+        env:
+          DEPLOY_USER: ${{ secrets.SPINUPWP_USER }}
+          DEPLOY_HOST: ${{ secrets.SPINUPWP_HOST }}
+          WP_PATH: /sites/${{ secrets.SPINUPWP_SITE }}/files
+        run: |
+          ssh ${DEPLOY_USER}@${DEPLOY_HOST} "wp cache flush --path=${WP_PATH} || true"
+
+      - name: Deployment complete
+        run: echo "✅ Theme deployed successfully to production!"

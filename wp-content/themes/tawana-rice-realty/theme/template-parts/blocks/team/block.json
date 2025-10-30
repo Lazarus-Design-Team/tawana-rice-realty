@@ -1,0 +1,15 @@
+{
+    "name": "acf/team",
+    "title": "Team",
+    "description": "Section used to display team members",
+    "category": "lazarus-design-team",
+    "icon": "groups",
+    "keywords": ["team", "team members", "team display"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "team.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

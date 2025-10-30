@@ -1,0 +1,70 @@
+# WordPress Core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# WordPress Config
+wp-config.php
+.htaccess
+
+# Third-party plugins (reinstall via Composer or manually)
+/wp-content/plugins/*
+!/wp-content/plugins/.gitkeep
+
+# Third-party themes
+/wp-content/themes/*
+!/wp-content/themes/tawana-rice-realty/
+
+# Uploads
+/wp-content/uploads/
+/wp-content/ai1wm-backups/
+
+# Must-use plugins
+/wp-content/mu-plugins/
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build files
+*.map
+
+# Environment
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+
+# Local by Flywheel
+/conf/
+/logs/
+/scripts/
+
+# Cache
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-rocket-config/
+
+# Local development
+/.claude/

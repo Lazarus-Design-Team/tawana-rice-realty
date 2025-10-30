@@ -1,0 +1,15 @@
+{
+    "name": "acf/featured-in",
+    "title": "Featured In",
+    "description": "Featured in section that displays logos and links ",
+    "category": "lazarus-design-team",
+    "icon": "open-folder",
+    "keywords": ["featured in", "logos", "partners", "articles"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "featured-in.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

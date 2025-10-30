@@ -1,0 +1,15 @@
+{
+    "name": "acf/recently-sold-slider",
+    "title": "Recently Sold Slider",
+    "description": "A slider section to display recently sold properties",
+    "category": "lazarus-design-team",
+    "icon": "slides",
+    "keywords": ["slider", "recently sold", "properties"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "recently-sold-slider.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

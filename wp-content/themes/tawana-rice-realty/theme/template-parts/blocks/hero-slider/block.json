@@ -1,0 +1,15 @@
+{
+    "name": "acf/hero-slider",
+    "title": "Hero Slider",
+    "description": "Home hero slider section",
+    "category": "lazarus-design-team",
+    "icon": "superhero",
+    "keywords": ["hero", "hero section", "hero slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "hero-slider.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

@@ -1,0 +1,15 @@
+{
+    "name": "acf/milestones",
+    "title": "Milestones",
+    "description": "Section to display milestones achieved by Tawana Rice & her team",
+    "category": "lazarus-design-team",
+    "icon": "chart-bar",
+    "keywords": ["milestones", "counter", "stats", "statistics", "achievements"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "milestones.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

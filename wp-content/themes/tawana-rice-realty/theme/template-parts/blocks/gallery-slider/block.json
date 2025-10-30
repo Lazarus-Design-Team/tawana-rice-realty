@@ -1,0 +1,15 @@
+{
+    "name": "acf/gallery-slider",
+    "title": "Gallery Slider",
+    "description": "A slider section to display a gallery of photos",
+    "category": "lazarus-design-team",
+    "icon": "format-gallery",
+    "keywords": ["gallery", "photos", "slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "gallery-slider.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

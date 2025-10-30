@@ -1,0 +1,15 @@
+{
+    "name": "acf/map-section",
+    "title": "Map Section",
+    "description": "Section to display map embed",
+    "category": "lazarus-design-team",
+    "icon": "location-alt",
+    "keywords": ["map", "map section", "map embed"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "map.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

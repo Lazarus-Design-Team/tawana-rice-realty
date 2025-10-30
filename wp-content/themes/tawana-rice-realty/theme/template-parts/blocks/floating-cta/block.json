@@ -1,0 +1,15 @@
+{
+    "name": "acf/floating-cta",
+    "title": "Floating CTA",
+    "description": "Floating CTA",
+    "category": "lazarus-design-team",
+    "icon": "media-interactive",
+    "keywords": ["floating cta", "call to action", "cta", "media"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "floating-cta.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

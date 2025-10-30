@@ -1,0 +1,15 @@
+{
+    "name": "acf/testimonials-slider",
+    "title": "Testimonials Slider",
+    "description": "A slider section to display testimonals and reviews",
+    "category": "lazarus-design-team",
+    "icon": "testimonial",
+    "keywords": ["testimonials", "reviews", "slider"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "testimonials-slider.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

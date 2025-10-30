@@ -1,0 +1,15 @@
+{
+    "name": "acf/floating-contact-cta",
+    "title": "Floating Contact CTA",
+    "description": "Floating Contact CTA",
+    "category": "lazarus-design-team",
+    "icon": "media-interactive",
+    "keywords": ["floating contact cta", "call to action", "contact", "contact cta"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "floating-contact-cta.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}

@@ -1,0 +1,15 @@
+{
+    "name": "acf/inner-hero",
+    "title": "Inner Hero",
+    "description": "Hero section for inner pages",
+    "category": "lazarus-design-team",
+    "icon": "superhero",
+    "keywords": ["hero", "banner", "inner hero"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "inner-hero.php"
+    },
+    "supports": {
+        "anchor": true
+    }  
+}
